@@ -42,17 +42,19 @@ else:
     if len(fileinput_provided)==1:
         #if the output command is passed
         if len(outputfile_provided)==1:
-            #open a read file and put the output there
+            #open a file with the file name provided with the o- prefix 
             with open(outputfile_provided[0][2:], "wb") as f:
+                #executing the file and writing all the outputs into output file
                 subprocess.check_call(["python", path+"\\"+fileinput_provided[0][2:]], stdout=f)
                 consoleoutput.append((folder,fileinput_provided[0][2:]))
+        #if the output command is not passed
         else:
             exec(open(path+"\\"+arguments).read())
             consoleoutput.append((folder,fileinput_provided[0][2:]))
-
-    
+            
+    #if the file command is not passed         
     else:
-        #open a read file and put the output there
+        #if the output command is passed
         if len(outputfile_provided)==1:
             with open(outputfile_provided[0][2:], "wb") as f:
             #run files in descending order
@@ -68,9 +70,10 @@ else:
                     for file_ in files:
                         subprocess.check_call(["python", path+"\\"+file_], stdout=f)
                         consoleoutput.append((folder,file_))
-
+                        
+        #if the output command not is passed
         else:
-            if "desc" in arguments:
+            if "DESC" in arguments:
                 files=os.listdir(path)
                 files.reverse()
                 for file_ in files:
