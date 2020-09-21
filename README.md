@@ -18,7 +18,10 @@ The mentioned architecture model is a basic web application model.
 The CDN is used to deliver the content to end-users(clients) to reduce the latency and reduce the load on application servers. 
 Then for requests that are not cached by the CDN, they are processed by the Load Balancer which distributes the traffic among the application servers. The aplication servers then send responses to the client.
 <br />
+
+
 ## Benefits:
+
 <br />
 The use of CDN will reduce the latency of the responses of the contents that can be cached. We used Akamai CDN in our previos ecommerce project.
 <br />
@@ -31,6 +34,7 @@ When a load balancer goes down the other load balancer can handle all the traffi
  <br />
  
  ## How do you roll out an update to the service without any downtime impact to the app foo.com
+ 
  <br />
  First I would make sure to do this activity on a day/time when less customer traffic is expected. Then, will route all the traffic to one service using the CDN. 
  <br />
@@ -40,7 +44,11 @@ When a load balancer goes down the other load balancer can handle all the traffi
  <br />
  This way we have one service always to serve the customers without downtime.
  <br />
+ 
+ 
  ## If you have to deploy this App to the Cloud what services would you use and explain the Architecture.
+ 
+ 
  <br />
  AWS:
  If I have to deploy this in cloud this would me my architecture.
