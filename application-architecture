@@ -22,4 +22,9 @@ Benefits:
  
  AWS:
  If I have to deploy this in cloud this would me my architecture.
- Route 53 ---------> Elastic load balancer ------------> EC2 instances in an Auto scaling group spread across multiple AZ. For CDN I will use aws CloudFront. 
+ Route 53 ---------> Elastic load balancer's (in multiple regions) ------------> EC2 instances in an Auto scaling group spread across multiple AZ. For CDN I will use aws CloudFront. 
+ 
+ Here, Route 53 is a DNS service that performs global server load balancing by routing each request to the AWS region closest to the client's location. 
+ Then the elastic load balancer balances the traffic between EC2 instances in different availability zones.
+ Finally the auto scaling group will size up and size down the instance based on the load to the instances.
+ CloudFront will be acting like CDN which caches the content on edge locations and provides the content to end-users with low latency.
