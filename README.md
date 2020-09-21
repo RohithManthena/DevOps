@@ -23,15 +23,16 @@ Then for requests that are not cached by the CDN, they are processed by the Load
 ## Benefits:
 
 <br />
-The use of CDN will reduce the latency of the responses of the contents that can be cached. We used Akamai CDN in our previos ecommerce project.
+The use of CDN will reduce the latency by delivering content from a server that is closest to the user. We used Akamai CDN in our previous ecommerce project.
 <br />
 The use of Load balancer will help handling the application server failures and will also give an increased scalability. 
 <br />
 The use of two load balancers is also to handle failures and increase the availability of the application.
 <br />
 When a load balancer goes down the other load balancer can handle all the traffic until the failed one is restored.
- 
- <br />
+<br />
+The same goes with having 2 services as shown in the architecture diagram. When we have a deployment or when one of the service goes down we will have an other service that serves requests and make sure the applicaiton does not have any down time. 
+<br />
  
  ## How do you roll out an update to the service without any downtime impact to the app foo.com
  
