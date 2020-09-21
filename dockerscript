@@ -12,9 +12,12 @@ docker exec sqlserver /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "Revanth
 docker exec sqlserver /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "Revanth@1server" -i /DBscripts/02-create-table.sql
 docker exec sqlserver /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "Revanth@1server" -i /DBscripts/03-insert-data.sql
 
-#This is the dockerfile saved in the same directory where this shell script is run. It is used to build custom image of the sql server with a DBscripts folder in the root directory copied from the linux home directory.
+#This is the dockerfile saved in the same directory where the above shell script is run. It is used to build custom image of the sql server with a DBscripts folder in the root directory copied from the linux machines home directory.
 FROM mcr.microsoft.com/mssql/server:2019-latest
 WORKDIR /
 USER root
 RUN mkdir -p DBscripts/
 COPY DBScripts/* /DBscripts/
+
+
+## Here, I have opened the 1433 port from my ipaddress by configuring the security groups and I was able to connect from my SSMS and verify the things done above.
